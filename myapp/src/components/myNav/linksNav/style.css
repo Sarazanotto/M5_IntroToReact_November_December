@@ -1,0 +1,5 @@
+.link:hover{
+   transform: scale(1.1);
+   text-decoration: underline;
+   text-underline-offset: 8px;
+}

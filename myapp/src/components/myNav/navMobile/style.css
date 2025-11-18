@@ -1,0 +1,10 @@
+.burger-btn{
+    background-color: transparent;
+    color: #000;
+    border: none;
+}
+.burger-btn:hover{
+    border: none;
+    background-color: #000;
+    color: #fff;
+}
