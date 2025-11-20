@@ -1,26 +1,11 @@
 import React from 'react'
-import { Container,Row, Col} from 'react-bootstrap'
-import books from '../allTheBooks/books/fantasy.json'
-import SingleBook from '../allTheBooks/singleBook/SingleBook'
 
-
-const AllTheBooks = () => {
+const MyFooter = () => {
   return (
-   <Container>
-    <Row className='g-3'>
-{books.map(book=>(
-  <Col  key={book.asin} sm={4} md={3} lg={2} >
-
-  <SingleBook
- 
-  image={book.img}
-  alt= {book.title}
-  />
-  </Col>
-))} 
-    </Row>
-   </Container>
+    <div>
+      
+    </div>
   )
 }
 
-export default AllTheBooks
+export default MyFooter

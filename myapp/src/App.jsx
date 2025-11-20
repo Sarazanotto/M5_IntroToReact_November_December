@@ -1,6 +1,6 @@
 import MyNav from "./components/myNav/MyNav"
 import Welcome from './components/Welcome/Welcome'
-import AllTheBooks from './components/allTheBooks/AllTheBook'
+import BookSection from './components/booksSection/BookSection'
 import MyFooter from "./components/footer/MyFooter"
 
 
@@ -12,7 +12,7 @@ function App() {
     <div className="h-100 d-flex flex-column justify-content-space-between">
     <MyNav/>
     <Welcome/>
-    <AllTheBooks/>
+    <BookSection/>
     <MyFooter/>
     </div>
   )
