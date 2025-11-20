@@ -5,13 +5,13 @@ import AllBooks from "./allBooks/AllBooks";
 import SearchInput from "./searchbarInput/SearchInput";
 
 const BookSection = () => {
-  const allBooks=[...fantasyBooks,...historyBooks]
+
   const [books, setBooks] = useState([...fantasyBooks, ...historyBooks]);
 
   return (
     <>
-      <SearchInput books={books} setBooks={setBooks} originalBooks={allBooks} />
-      <AllBooks books={books. slice(0,10)} />
+      <SearchInput books={books} setBooks={setBooks}  />
+      <AllBooks books={books. slice(0,20)} />
     </>
   );
 };

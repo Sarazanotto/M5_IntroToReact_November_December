@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./style.css";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
-const SearchInput = ({ books, setBooks, originalBooks }) => {
+const SearchInput = ({ books, setBooks }) => {
   const [search, setSearch] = useState("");
+  const [originalBooks,setOriginalBooks]= useState(books)
 
   const onChange = (e) => {
     setSearch(e.target.value);
