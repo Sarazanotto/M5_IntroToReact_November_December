@@ -24,9 +24,9 @@ const openCanvas=()=>{
 
 <Offcanvas show={showCanvas} onHide={closeCanvas} placement='end'>
   <Offcanvas.Header closeButton>
- <Offcanvas.Title>logo</Offcanvas.Title>
+ <Offcanvas.Title className='px-4'>EpicBooks</Offcanvas.Title>
     </Offcanvas.Header>
-<Offcanvas.Body  >
+<Offcanvas.Body className='px-5'  >
 <LinksNav/>
 </Offcanvas.Body>
 </Offcanvas>

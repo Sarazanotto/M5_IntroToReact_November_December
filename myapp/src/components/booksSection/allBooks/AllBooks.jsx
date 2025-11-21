@@ -11,7 +11,8 @@ const AllBooks = ({books}) => {
             <SingleBook 
             key={book.asin} 
             image={book.img} 
-            title={book.title} />
+            title={book.title}
+            asin={book.asin} />
           ))}
         </Row>
       </Container>
