@@ -19,3 +19,32 @@
 .formControl{
     box-shadow: 2px 2px 2px rgb(130, 130, 130);
 }
+
+.containerMain{
+  position: relative;
+}
+
+.containerMain::after, .containerMain::before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: calc(50% - 25%);
+  background-color:#dee2e6;
+  top: 50%;
+
+}
+.containerMain::after{
+  left: 0;
+}
+.containerMain::before{
+right: 0;
+}
+@media (max-width: 768px) {
+  .containerMain::after, .containerMain::before{
+    display: none;
+  }
+  .containerMain{
+    border-top: 2px solid #dee2e6;
+    padding-top: 10px;
+  }
+}
