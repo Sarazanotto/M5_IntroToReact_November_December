@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import {urlToken} from '../urlToken'
+
 
 const CommentArea = ({asin}) => {
    const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ const CommentArea = ({asin}) => {
           body: JSON.stringify(formData),
           headers: {
             'Content-Type': 'Application/json',
-            Authorization: 'Bearer' + urlToken,
+          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM',
           },
         }
       );
