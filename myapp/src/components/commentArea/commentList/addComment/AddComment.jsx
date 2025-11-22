@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {urlToken} from '../../../urlToken'
 import SingleComment from "../singleComment/SingleComment";
 const AddComment = () => {
 
@@ -11,7 +10,7 @@ const AddComment = () => {
         `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`,
         {
           headers: {
-            Authorization: 'Bearer' + urlToken,
+            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM',
           },
         }
       );
