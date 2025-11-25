@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import CustomAlert from "../../costums/costumAlert/CostumAlert";
+import CustomAlert from '../../costums/customAlert/CustomAlert';
 
 const SearchInput = ({ books, setBooks }) => {
   const [search, setSearch] = useState("");

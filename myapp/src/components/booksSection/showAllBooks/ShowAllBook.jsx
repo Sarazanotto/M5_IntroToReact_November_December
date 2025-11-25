@@ -2,7 +2,7 @@
 import { Container, Row } from "react-bootstrap";
 import SingleBook from "../singleBook/SingleBook";
 
-const AllBooks = ({books}) => {
+const ShowAllBooks = ({books}) => {
   return (
     <>
       <Container className="px-5">
@@ -20,4 +20,4 @@ const AllBooks = ({books}) => {
   );
 };
 
-export default AllBooks;
+export default ShowAllBooks;
