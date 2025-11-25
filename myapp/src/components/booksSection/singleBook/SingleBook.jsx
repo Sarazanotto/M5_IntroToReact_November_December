@@ -32,7 +32,7 @@ const SingleBook = ({ image, title, asin }) => {
           </Card.Body>
         </Card>
       </Col>
-      <ModalComment
+      <ModalComment className='form-mode'
         isOpen={isOpen}
         setIsOpen={closeModal}
         list={<CommentArea asin={asin} />}

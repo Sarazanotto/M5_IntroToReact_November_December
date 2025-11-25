@@ -16,7 +16,7 @@ const MyNavMobile = () => {
 
   return (
     <div className="d-md-none">
-      <Button className="burger-btn" onClick={openCanvas}>
+      <Button className="burger-btn btn" onClick={openCanvas}>
         <Menu />
       </Button>
 

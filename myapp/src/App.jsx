@@ -4,6 +4,8 @@ import BookSection from './components/booksSection/BookSection'
 import MyFooter from "./components/footer/MyFooter"
 import { ThemeProvider } from "./context/ThemeContext"
 import { CommentsProvider } from "./context/CommentsContext"
+import SearchInput from "./components/myNav/searchbarInput/SearchInput"
+import { InputSearchProvider } from "./context/inputSearchContext"
 
 
 
@@ -15,9 +17,12 @@ function App() {
     <div className="h-100 d-flex flex-column justify-content-space-between">
     <MyNav/>
     <Welcome/>
+    <InputSearchProvider>
     <CommentsProvider>
+      <SearchInput/>
     <BookSection/>
-    </CommentsProvider>
+    </CommentsProvider></InputSearchProvider>
+    
     <MyFooter/>
     </div>
     </ThemeProvider>

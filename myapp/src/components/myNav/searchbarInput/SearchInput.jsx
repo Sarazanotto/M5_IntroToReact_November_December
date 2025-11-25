@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import CustomAlert from '../../costums/customAlert/CustomAlert';
+import CustomAlert from "../../costums/customAlert/CustomAlert";
+import { InputSearchContext, InputSearchProvider } from "../../../context/inputSearchContext";
 
-const SearchInput = ({ books, setBooks }) => {
+const SearchInput = () => {
+const {books,setBooks}=useContext(InputSearchContext)
+
   const [search, setSearch] = useState("");
   const [originalBooks, setOriginalBooks] = useState(books);
   const [showAlert, setShowAlert] = useState(false);
@@ -12,7 +15,7 @@ const SearchInput = ({ books, setBooks }) => {
     setSearch(e.target.value);
     if (e.target.value === "") {
       setBooks(originalBooks);
-      setShowAlert(false)
+      setShowAlert(false);
     }
   };
 
@@ -29,30 +32,38 @@ const SearchInput = ({ books, setBooks }) => {
   };
 
   return (
-    
-    <div className="containerMain mx-5">
-      <Container className="mb-5 py-3">
-        <Row className="justify-content-center ">
-           {showAlert && (
-            <CustomAlert variant='danger' text='Nessuna corrispondenza trovata'/>
+    <>
+      <div className="containerMain mx-5">
+        <Container className="py-3">
+          <Row className="justify-content-center ">
+            <Col sm={12} md={6}>
+              <Form className="d-flex gap-3">
+                <Form.Control
+                  className="formControl"
+                  onChange={onChange}
+                  type="text"
+                  placeholder="Cerca per titolo"
+                />
+                <Button className="btn btnSearch" onClick={onSearch}>
+                  Cerca
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      <Container>
+        <Row>
+          {showAlert && (
+            <CustomAlert
+              variant="danger"
+              text="Nessuna corrispondenza trovata"
+            />
           )}
-          <Col sm={12} md={6}>
-            <Form className="d-flex gap-3">
-              <Form.Control
-                className="formControl"
-                onChange={onChange}
-                type="text"
-                placeholder="Cerca per titolo"
-              />
-              <Button className="btn btnSearch" onClick={onSearch}>
-                Cerca
-              </Button>
-            </Form>
-          </Col>
         </Row>
       </Container>
-      
-    </div>
+    </>
   );
 };
 
