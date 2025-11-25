@@ -76,5 +76,5 @@ transform: scale(0.8);
 .cardBook:hover button {
   opacity: 1;
   transform: translateY(-40px);
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.196);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
 }

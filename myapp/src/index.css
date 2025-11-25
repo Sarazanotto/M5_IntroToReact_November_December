@@ -1,5 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
 
-body{
-    font-family:  "Montserrat", sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+body.dark {
+  background-color: #2e2e2e;
+  color: #fff;
+
+  nav {
+    
+  }
+  .navBrand{
+    color: #fff;
+  }
+  .burger-btn{
+    color: #fff;
+  }
+  .burger-btn:hover{
+    background-color: rgb(24, 24, 24)
+  }
+  .cardBook {
+    background-color: rgb(24, 24, 24);
+    color: #fff;
+    box-shadow: 4px 4px 6px rgb(32, 32, 32);
+  }
+  .titleCard::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(24, 24, 24, 0.8),
+      rgb(24, 24, 24)
+    );
+  }
+  .cardBook button{
+    background-color:rgb(24, 24, 24);
+    color: #fff;
+  }
 }

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { Button, Form } from "react-bootstrap";
+import { CommentContext } from "../../../context/CommentsContext";
 
-const AddComment = ({ asin, setComments }) => {
+const AddComment = ({ asin }) => {
+  const { getComment } = useContext(CommentContext);
   const [loading, setLoading] = useState(false);
- 
+
   const [formData, setFormData] = useState({
     comment: "",
     rate: "",
@@ -26,8 +28,9 @@ const AddComment = ({ asin, setComments }) => {
         }
       );
       const data = await response.json();
-      console.log(data);
-    setComments(data)
+      getComment(
+        `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`
+      );
     } catch (e) {
       console.log(e);
     } finally {
