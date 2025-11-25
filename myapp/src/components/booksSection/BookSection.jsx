@@ -1,44 +1,34 @@
-import { useState } from "react";
-import fantasyBooks from "./arrayBooks/fantasy.json";
-import historyBooks from "./arrayBooks/history.json";
-import horrorBooks from "./arrayBooks/horror.json";
-import scifiBooks from "./arrayBooks/scifi.json";
-import romanceBooks from "./arrayBooks/romance.json";
+import { useContext, useState } from "react";
+
 import ShowAllBooks from "./showAllBooks/ShowAllBooks";
-import SearchInput from "../myNav/searchbarInput/SearchInput";
+
+import { InputSearchContext } from "../../context/inputSearchContext";
 
 const BookSection = () => {
-  const [books, setBooks] = useState([
-    ...fantasyBooks,
-    ...historyBooks,
-    ...horrorBooks,
-    ...romanceBooks,
-    ...scifiBooks,
-  ]);
 
+const {books}= useContext(InputSearchContext)
   const [visibleBook, setVisibleBook] = useState(20);
 
   const loadBook = () => {
-    setVisibleBook((book) => book + 20);
+    setVisibleBook((book) => Math.min(book + 20, books.length));
   };
 
-  const loadLessBook=()=>{
-    setVisibleBook((book)=>book-20)
-  }
+  const loadLessBook = () => {
+    setVisibleBook((book) => Math.max(book - 20, 20));
+  };
 
   return (
     <main className="mb-5">
-      <SearchInput books={books} setBooks={setBooks} />
-
+     {/* <SearchInput books={books} setBooks={setBooks} />
+*/}
       <ShowAllBooks books={books.slice(0, visibleBook)} />
       <div className="dvh-100 d-flex justify-content-center m-5 gap-5">
         <button className="btn btn-form text-light" onClick={loadBook}>
           Show More
         </button>
         <button className="btn btn-form text-light" onClick={loadLessBook}>
-         Show Less
+          Show Less
         </button>
-
       </div>
     </main>
   );

@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 
 const MyFooter = () => {
   return (
-    <Container fluid className="m-5 pt-3 border-top border-2 w-100">
+    <Container className="m-lg-5 p-3 border-top border-2">
       <Row>
         <Col sm={12} md={4}>
           <h3>EpicBooks</h3>

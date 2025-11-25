@@ -1,10 +1,12 @@
 import { createContext, useState, useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { CommentContext } from "../../../context/CommentsContext";
+import CostumAlert from "../../costums/customAlert/CustomAlert";
 
 const AddComment = ({ asin }) => {
   const { getComment } = useContext(CommentContext);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const [formData, setFormData] = useState({
     comment: "",
@@ -27,18 +29,23 @@ const AddComment = ({ asin }) => {
           },
         }
       );
+      if (!response.ok) {
+        setError(true);
+      }
       const data = await response.json();
       getComment(
         `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`
       );
     } catch (e) {
       console.log(e);
+      setError(true);
     } finally {
       setLoading(false);
     }
   };
 
   const onChange = (e) => {
+    setError(false);
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -53,9 +60,14 @@ const AddComment = ({ asin }) => {
 
   return (
     <>
-      <Form onSubmit={onSubmit} className="d-flex flex-column gap-3">
+      {error && (
+        <CostumAlert text="Devi inserire un commento" variant="danger" />
+      )}
+
+      <Form onSubmit={onSubmit} className="d-flex flex-column gap-3 form-mode">
         <Form.Label className="fs-4">Scrivi qui la tua recensione</Form.Label>
         <Form.Control
+          className="form-mode"
           onChange={onChange}
           as="textarea"
           placeholder="Il tuo commento..."
@@ -63,6 +75,7 @@ const AddComment = ({ asin }) => {
           rows={2}
         />
         <Form.Control
+          className="form-mode"
           onChange={onChange}
           placeholder="Assegna da 1 a 5"
           type="number"

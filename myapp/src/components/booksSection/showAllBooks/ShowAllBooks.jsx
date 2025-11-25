@@ -5,7 +5,7 @@ import SingleBook from "../singleBook/SingleBook";
 const ShowAllBooks = ({books}) => {
   return (
     <>
-      <Container className="px-5">
+      <Container className="px-5 mt-5">
         <Row className="g-4">
           {books.map(book => (
             <SingleBook 
