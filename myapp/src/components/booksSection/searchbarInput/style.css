@@ -1,4 +1,4 @@
-.btnSearch {
+.btnSearch, .btn-form {
   background-color: black;
   border: none;
   padding: 5px 15px;
@@ -7,7 +7,7 @@
     3px 3px 4px gray;
 }
 
-.btnSearch:hover {
+.btnSearch:hover, .btn-form:hover {
   background-color: black;
   border: none;
   padding: 5px 15px;

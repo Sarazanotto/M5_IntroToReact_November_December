@@ -1,72 +1,65 @@
-import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import SingleComment from "./singleComment/SingleComment";
+import { Container, Row } from "react-bootstrap";
+import CostumLoading from "../costums/costumLoading/CostumLoading";
 
 
-const CommentArea = ({asin}) => {
-   const [formData, setFormData] = useState({
-    comment: "",
-    rate: "",
-    elementId: asin,
-  });
-
+const CommentArea = ({ asin}) => {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
  
-  const addComment = async () => {
+ 
+
+  const getComment = async (asin) => {
+    setLoading(true);
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments`,
+        `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`,
         {
-          method: 'POST',
-          body: JSON.stringify(formData),
           headers: {
-            'Content-Type': 'Application/json',
-          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM',
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM",
           },
         }
       );
-      return await response.json()
-    } catch (e) {
-      console.log(e);
+      const data = await response.json();
+      setComments(data);
+      
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
+  useEffect(() => {
+    getComment(asin);
+  }, []);
 
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const onSubmit= async(e)=>{
-    e.preventDefault()
-    await addComment()
-  }
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
-        <Form.Group>
-          <Form.Label>scrivi qui</Form.Label>
-          <Form.Control
-            onChange={onChange}
-            as="textarea"
-            name="comment"
-            rows={2}
-          />
-          <Form.Control
-            onChange={onChange}
-            type="number"
-            name="rate"
-            min={1}
-            max={5}
-          />
-        </Form.Group>
-        <Button type="submit" className="btn">Invia</Button>
-      </Form>
+      <Container>
+        {loading ? (
+          <CostumLoading />
+        ) : (
+          <Row className="flex-column g-4">
+            {comments &&
+              comments.map((comment) => (
+                <SingleComment
+                  key={comment._id}
+                  author={comment.author}
+                  comment={comment.comment}
+                  rate={comment.rate}
+                  id={comment._id}
+                />
+              ))}
+          </Row>
+        )}
+      </Container>
     </>
   );
 };
 
 export default CommentArea;
+
