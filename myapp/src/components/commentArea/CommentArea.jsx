@@ -1,42 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SingleComment from "./singleComment/SingleComment";
 import { Container, Row } from "react-bootstrap";
 import CostumLoading from "../costums/costumLoading/CostumLoading";
+import { CommentContext } from "../../context/CommentsContext";
 
 
-const CommentArea = ({ asin}) => {
-  const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(false);
+const CommentArea = ({asin}) => {
+
+  const{loading, comments, getComment}=useContext(CommentContext)
  
+  useEffect(()=>{
+    getComment(`https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`)
+  },[])
  
-
-  const getComment = async (asin) => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`,
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM",
-          },
-        }
-      );
-      const data = await response.json();
-      setComments(data);
-      
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getComment(asin);
-  }, []);
-
-
   return (
     <>
       <Container>

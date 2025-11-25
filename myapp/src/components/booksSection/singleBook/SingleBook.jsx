@@ -9,6 +9,7 @@ const SingleBook = ({ image, title, asin }) => {
   const [isSelected, setIsSelected] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+
   const onChangeBook = () => {
     setIsSelected(!isSelected);
   };
@@ -35,7 +36,7 @@ const SingleBook = ({ image, title, asin }) => {
         isOpen={isOpen}
         setIsOpen={closeModal}
         list={<CommentArea asin={asin} />}
-        form={<AddComment asin={asin} />}
+        form={<AddComment asin={asin}  />}
       />
     </>
   );
