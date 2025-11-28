@@ -8,15 +8,12 @@ export const CommentsProvider = ({ children }) => {
   const getComment = async (url) => {
     setLoading(true);
     try {
-      const response = await fetch(
-        url,
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM",
-          },
-        }
-      );
+      const response = await fetch(url, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTAzNjk3NWM2MDhlZjAwMTVjN2JkMjUiLCJpYXQiOjE3NjM3OTczNTksImV4cCI6MTc2NTAwNjk1OX0.4F7N_EkoUzkLeZm7ZrTFKvN9S0TI_6TAo-7qmZdPOFM",
+        },
+      });
       const data = await response.json();
       setComments(data);
     } catch (error) {
@@ -26,13 +23,11 @@ export const CommentsProvider = ({ children }) => {
     }
   };
 
-
-return(
-    <CommentContext.Provider value={{getComment, loading, comments, setComments}}>
-        {children}
+  return (
+    <CommentContext.Provider
+      value={{ getComment, loading, comments, setComments }}
+    >
+      {children}
     </CommentContext.Provider>
-)
-
-
+  );
 };
- 

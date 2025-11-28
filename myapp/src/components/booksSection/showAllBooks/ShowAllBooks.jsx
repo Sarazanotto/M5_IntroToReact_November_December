@@ -6,7 +6,7 @@ const ShowAllBooks = ({books}) => {
   return (
     <>
       <Container className="px-5 mt-5">
-        <Row className="g-4">
+        <Row className="g-2">
           {books.map(book => (
             <SingleBook 
             key={book.asin} 
