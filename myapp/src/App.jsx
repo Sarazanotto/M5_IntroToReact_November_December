@@ -7,6 +7,7 @@ import { CommentsProvider } from "./context/CommentsContext";
 import SearchInput from "./components/myNav/searchbarInput/SearchInput";
 import { InputSearchProvider } from "./context/inputSearchContext";
 import { SelectedBookProvider } from "./context/SelectedBookContext";
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
   return (
@@ -14,14 +15,16 @@ function App() {
       <div className="h-100 d-flex flex-column justify-content-space-between">
         <MyNav />
         <Welcome />
-        <SelectedBookProvider>
-          <InputSearchProvider>
-            <CommentsProvider>
-              <SearchInput />
-              <BookSection />
-            </CommentsProvider>
-          </InputSearchProvider>
-        </SelectedBookProvider>
+        <ModalProvider>
+          <SelectedBookProvider>
+            <InputSearchProvider>
+              <CommentsProvider>
+                <SearchInput />
+                <BookSection />
+              </CommentsProvider>
+            </InputSearchProvider>
+          </SelectedBookProvider>
+        </ModalProvider>
 
         <MyFooter />
       </div>

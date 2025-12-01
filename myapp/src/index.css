@@ -67,7 +67,6 @@ border-color: #1a1a1a !important;
   background-color: rgb(19, 19, 19);
 }
  .formControl{
-
   border: 1px solid rgb(68, 68, 68);
   box-shadow: none;
  }
@@ -78,5 +77,10 @@ border-color: #1a1a1a !important;
   background-color: #1a1a1a;
   color: #fff;
 }
+.modal-content{
+  background-color: rgb(46, 46, 46);
+  color: #fff;
+}
+
 
 }
