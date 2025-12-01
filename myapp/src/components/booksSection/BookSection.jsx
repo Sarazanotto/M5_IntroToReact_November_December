@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import './style.css'
+import "./style.css";
 import ShowAllBooks from "./showAllBooks/ShowAllBooks";
 
 import { InputSearchContext } from "../../context/inputSearchContext";
@@ -7,9 +7,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import CommentArea from "../commentArea/CommentArea";
 import { SelectedBookContext } from "../../context/SelectedBookContext";
 import AddComment from "../commentArea/addComment/AddComment";
+import CommentAreaMobile from "../commentAreaMobile/CommentAreaMobile";
 
 const BookSection = () => {
-  
   const { isSelected } = useContext(SelectedBookContext);
   const { books } = useContext(InputSearchContext);
   const [visibleBook, setVisibleBook] = useState(20);
@@ -24,7 +24,7 @@ const BookSection = () => {
 
   return (
     <main className="mb-5">
-      <Container >
+      <Container>
         <Row className="align-items-start">
           <Col sm={12} md={8}>
             {" "}
@@ -42,11 +42,13 @@ const BookSection = () => {
             </div>
           </Col>
           <Col sm={12} md={4} className="sectionComment">
+          
             <CommentArea asin={isSelected} />
-            <AddComment asin={isSelected}/>
+            <AddComment asin={isSelected} />
           </Col>
         </Row>
       </Container>
+      <CommentAreaMobile/>
     </main>
   );
 };

@@ -5,9 +5,10 @@ import CommentArea from "../../commentArea/CommentArea";
 import ModalComment from "../modalComment/ModalComment";
 import AddComment from "../../commentArea/addComment/AddComment";
 import { SelectedBookContext } from "../../../context/SelectedBookContext";
+import { ModalContext } from "../../../context/ModalContext";
 
 const SingleBook = ({ image, title, asin }) => {
-
+const {handleShow}=useContext(ModalContext)
   const [isOpen, setIsOpen] = useState(false);
 
   const {isSelected, setIsSelected}=useContext(SelectedBookContext)
@@ -16,16 +17,24 @@ const SingleBook = ({ image, title, asin }) => {
     setIsSelected(asin);
   };
 
+const openModal=()=>{
+  handleShow();
+  setIsSelected(asin)
+}
 
-  const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
+
 
   return (
     <>
       <Col sm={12} md={4} lg={3} >
         <Card className="cardBook">
           <div>
-            <button onClick={onChangeBook} className="button">
+            <button onClick={onChangeBook} className="button d-none d-md-block">
+              Recensioni
+            </button>
+          </div>
+          <div>
+            <button onClick={openModal} className="button d-md-none">
               Recensioni
             </button>
           </div>
