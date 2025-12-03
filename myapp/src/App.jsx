@@ -1,34 +1,17 @@
-import MyNav from "./components/myNav/MyNav";
-import Welcome from "./components/Welcome/Welcome";
-import BookSection from "./components/booksSection/BookSection";
-import MyFooter from "./components/footer/MyFooter";
-import { ThemeProvider } from "./context/ThemeContext";
-import { CommentsProvider } from "./context/CommentsContext";
-import SearchInput from "./components/myNav/searchbarInput/SearchInput";
-import { InputSearchProvider } from "./context/inputSearchContext";
-import { SelectedBookProvider } from "./context/SelectedBookContext";
-import { ModalProvider } from "./context/ModalContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import ErrorPage from "./pages/ErrorPage";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="h-100 d-flex flex-column justify-content-space-between">
-        <MyNav />
-        <Welcome />
-        <ModalProvider>
-          <SelectedBookProvider>
-            <InputSearchProvider>
-              <CommentsProvider>
-                <SearchInput />
-                <BookSection />
-              </CommentsProvider>
-            </InputSearchProvider>
-          </SelectedBookProvider>
-        </ModalProvider>
-
-        <MyFooter />
-      </div>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Homepage />} />
+        <Route path='/book/:asin' element={<Detail/>}/>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -36,8 +36,9 @@ const {books,setBooks}=useContext(InputSearchContext)
       <div className="containerMain mx-5 d-flex flex-column flex-md-roaw gap-2">
         <Container className="py-3">
           <Row className="justify-content-center ">
-            <Col sm={12} md={6}>
-              <Form className="d-flex gap-3">
+       
+            <Col sm={12} md={8}>
+              <Form className="d-flex gap-3 inputForm">
                 <Form.Control
                   className="formControl"
                   onChange={onChange}
@@ -49,6 +50,7 @@ const {books,setBooks}=useContext(InputSearchContext)
                 </Button>
               </Form>
             </Col>
+                 <Col sm={12} md={4}></Col>
           </Row>
         </Container>
       </div>
