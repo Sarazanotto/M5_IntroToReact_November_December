@@ -3,84 +3,34 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-
-body.dark {
-  background-color: #2e2e2e;
-  color: #fff;
-
-  .navBrand{
-    color: #fff;
-  }
-  .navbarBorder, .containerMain{
-border-color: #1a1a1a !important;
-  } 
-  .containerMain::after, .containerMain::before{
-   background-color: #1a1a1a;
-  }
-  .burger-btn{
-    color: #fff;
-  }
-  .burger-btn:hover{
-    background-color: rgb(24, 24, 24)
-  }
-   .btn{
-    background-color: rgb(19, 19, 19)!important;
-   box-shadow: inset 2px 2px 2px #1a1a1a, inset 4px 4px 5px rgb(54, 54, 54),
-    3px 3px 4px rgb(0, 0, 0);
-  }
-.btn:hover{
-   box-shadow: inset -2px -2px 2px #1a1a1a, inset -4px -4px 5px rgb(54, 54, 54),
-    -3px -3px 4px rgb(0, 0, 0);
+.btn-icon-detail{
+ border: none;
+ background-color: none;
+ padding: 0; 
+ stroke: #000;
 }
-  .btn-mode, .burger-btn{
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+.btn-icon-detail:hover{
+  transform: scale(1.1);
+}
+.img-book-detail{
+  box-shadow: 0 40px 20px -20px rgb(100, 100, 100,0.8);
   }
-  .btn-mode:hover {
+  .btn-detail{
     color: #000;
-    background-color: #fff;
-    box-shadow: none;
   }
- .burger-btn:hover{
-  background-color: #1a1a1a;
+
+.btn:hover{
+  border: none;
   box-shadow: none;
- }
-  .cardBook {
-    background-color: rgb(24, 24, 24);
-    color: #fff;
-    box-shadow: 4px 4px 6px rgb(32, 32, 32);
-  }
-  .titleCard::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(24, 24, 24, 0.8),
-      rgb(24, 24, 24)
-    );
-  }
-  .cardBook button{
-    background-color:rgb(24, 24, 24);
-    color: #fff;
-  }
-.form-mode.form-control, .formControl.form-control{
-  background-color: rgb(19, 19, 19);
-}
- .formControl{
-  border: 1px solid rgb(68, 68, 68);
-  box-shadow: none;
- }
- .form-mode::placeholder, .formControl::placeholder{
-  color: #2e2e2e;
- }
-.offcanvas{
-  background-color: #1a1a1a;
-  color: #fff;
-}
-.modal-content{
-  background-color: rgb(46, 46, 46);
-  color: #fff;
+  outline: none;
 }
 
+.btn:active{
+  border: none;
+}
 
+.btn:focus{
+  border: none;
+  outline: none;
+  box-shadow: none;
 }

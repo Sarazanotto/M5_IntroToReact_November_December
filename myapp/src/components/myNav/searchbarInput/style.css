@@ -1,4 +1,5 @@
-.btnSearch, .btn-form {
+.btnSearch,
+.btn-form {
   background-color: black;
   border: none;
   padding: 5px 15px;
@@ -7,43 +8,70 @@
     3px 3px 4px gray;
 }
 
-.btnSearch:hover, .btn-form:hover, .btn-form:active, .btnSearch:active .btn:active{
+.btnSearch:hover,
+.btn-form:hover,
+.btn-form:active,
+.btnSearch:active .btn:active {
   background-color: rgb(0, 0, 0) !important;
   border: none;
   padding: 5px 15px;
   border-radius: 20px;
-  box-shadow: inset -3px -3px 5px rgb(91, 91, 91),
-   -3px -3px 4px gray;
+  box-shadow: inset -3px -3px 5px rgb(91, 91, 91), -3px -3px 4px gray;
 }
 
-.formControl{
-    box-shadow: 2px 2px 2px rgb(130, 130, 130);
+.formControl {
+  box-shadow: 2px 2px 2px rgb(130, 130, 130);
 }
 
-.containerMain{
+.containerMain {
   position: relative;
 }
 
-.containerMain::after, .containerMain::before{
+.containerMain::after,
+.containerMain::before {
   position: absolute;
   content: "";
   height: 2px;
-  width: calc(50% - 25%);
-  background-color:#dee2e6;
+  background-color: #dee2e6;
   top: 50%;
 }
 
-.containerMain::after{
+.containerMain::after {
   left: 0;
+  width: calc(100% - 95%);
 }
-.containerMain::before{
-right: 0;
+.containerMain::before {
+  right: 0;
+  width: calc(100% - 69%);
 }
-@media (max-width: 768px) {
-  .containerMain::after, .containerMain::before{
+
+@media (min-width: 2560px){
+.containerMain::after {
+  left: 0;
+  width: calc(100% - 80%);
+}
+.containerMain::before {
+  right: 0;
+  width: calc(100% - 62%);
+}
+}
+@media (max-width: 1440px){
+.containerMain::after {
+  left: 0;
+  width: calc(100% - 96%);
+}
+.containerMain::before {
+  right: 0;
+  width: calc(100% - 68%);
+}
+}
+
+@media (max-width: 767px) {
+  .containerMain::after,
+  .containerMain::before {
     display: none;
   }
-  .containerMain{
+  .containerMain {
     border-top: 2px solid #dee2e6;
     padding-top: 10px;
   }

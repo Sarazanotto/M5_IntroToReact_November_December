@@ -26,7 +26,7 @@ const BookSection = () => {
     <main className="mb-5">
       <Container>
         <Row className="align-items-start">
-          <Col sm={12} md={8}>
+          <Col sm={12} md={8} className="d-flex flex-column">
             {" "}
             <ShowAllBooks books={books.slice(0, visibleBook)} />
             <div className="dvh-100 d-flex justify-content-center m-5 gap-5">

@@ -6,35 +6,56 @@ import ModalComment from "../modalComment/ModalComment";
 import AddComment from "../../commentArea/addComment/AddComment";
 import { SelectedBookContext } from "../../../context/SelectedBookContext";
 import { ModalContext } from "../../../context/ModalContext";
+import { Link } from "react-router-dom";
+import { BookOpenCheck, Heart } from "lucide-react";
+import { LikedContext } from "../../../context/LikedContext";
 
 const SingleBook = ({ image, title, asin }) => {
-const {handleShow}=useContext(ModalContext)
-  const [isOpen, setIsOpen] = useState(false);
+  const { toggleLike, like } = useContext(LikedContext);
+  const { handleShow } = useContext(ModalContext);
 
-  const {isSelected, setIsSelected}=useContext(SelectedBookContext)
+  const { isSelected, setIsSelected } = useContext(SelectedBookContext);
 
   const onChangeBook = () => {
     setIsSelected(asin);
   };
 
-const openModal=()=>{
-  handleShow();
-  setIsSelected(asin)
-}
-
-
+  const openModal = () => {
+    handleShow();
+    setIsSelected(asin);
+  };
 
   return (
     <>
-      <Col sm={12} md={4} lg={3} >
-        <Card className="cardBook">
+      <Col sm={12} md={4} lg={3}>
+        <Card className="cardBook" border={like[asin] ? "success" : "transparent"}>
           <div>
-            <button onClick={onChangeBook} className="button d-none d-md-block">
+            <button
+              onClick={onChangeBook}
+              className="btn-reviews d-none d-md-block"
+            >
               Recensioni
             </button>
           </div>
+
+          <div className="container-detail">
+            <Link
+              className="btn-detail text-decoration-none"
+              to={`/book/${asin}`}
+            >
+              Dettagli
+            </Link>
+            <div onClick={() => toggleLike(asin)}>
+              <BookOpenCheck
+                size={"15px"}
+                className="btn-icon"
+                color={like[asin] ? "green" : "black"}
+              />
+            </div>
+          </div>
+
           <div>
-            <button onClick={openModal} className="button d-md-none">
+            <button onClick={openModal} className="btn-reviews d-md-none">
               Recensioni
             </button>
           </div>
@@ -44,7 +65,6 @@ const openModal=()=>{
           </Card.Body>
         </Card>
       </Col>
-     
     </>
   );
 };
