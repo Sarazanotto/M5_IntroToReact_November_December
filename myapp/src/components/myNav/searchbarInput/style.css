@@ -38,7 +38,7 @@
 
 .containerMain::after {
   left: 0;
-  width: calc(100% - 99%);
+  width: calc(100% - 95%);
 }
 .containerMain::before {
   right: 0;
@@ -53,6 +53,16 @@
 .containerMain::before {
   right: 0;
   width: calc(100% - 62%);
+}
+}
+@media (max-width: 1440px){
+.containerMain::after {
+  left: 0;
+  width: calc(100% - 96%);
+}
+.containerMain::before {
+  right: 0;
+  width: calc(100% - 68%);
 }
 }
 

@@ -10,7 +10,7 @@ const MyNav = () => {
   const { toggleMode } = useContext(ThemeContext);
 
   return (
-    <Navbar className="d-flex justify-content-between mx-5 border-bottom border-2 p-2 navbarBorder">
+    <Navbar className="w-100 d-flex justify-content-around border-bottom border-2 navbarBorder">
       <Navbar.Brand className="fs-3 navBrand">EpicBooks</Navbar.Brand>
       <MyNavMobile />
       <MyNavDesktop />

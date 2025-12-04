@@ -33,7 +33,7 @@ const {books,setBooks}=useContext(InputSearchContext)
 
   return (
     <>
-      <div className="containerMain mx-5 d-flex flex-column flex-md-roaw gap-2">
+      <div className="containerMain w-100 d-flex flex-column flex-md-roaw gap-2">
         <Container className="py-3">
           <Row className="justify-content-center ">
        

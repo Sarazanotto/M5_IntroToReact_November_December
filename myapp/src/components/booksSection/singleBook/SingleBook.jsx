@@ -40,7 +40,7 @@ const SingleBook = ({ image, title, asin }) => {
 
           <div className="container-detail">
             <Link
-              className="btn btn-detail p-0 text-center"
+              className="btn-detail text-decoration-none"
               to={`/book/${asin}`}
             >
               Dettagli
@@ -48,7 +48,7 @@ const SingleBook = ({ image, title, asin }) => {
             <div onClick={() => toggleLike(asin)}>
               <BookOpenCheck
                 size={"15px"}
-                className="heart-icon"
+                className="btn-icon"
                 color={like[asin] ? "green" : "black"}
               />
             </div>

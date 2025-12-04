@@ -3,13 +3,26 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+.btn-icon-detail{
+ border: none;
+ background-color: none;
+ padding: 0; 
+ stroke: #000;
+}
+.btn-icon-detail:hover{
+  transform: scale(1.1);
+}
 .img-book-detail{
   box-shadow: 0 40px 20px -20px rgb(100, 100, 100,0.8);
-  
-}
+  }
+  .btn-detail{
+    color: #000;
+  }
+
 .btn:hover{
   border: none;
   box-shadow: none;
+  outline: none;
 }
 
 .btn:active{
@@ -18,4 +31,6 @@ body {
 
 .btn:focus{
   border: none;
+  outline: none;
+  box-shadow: none;
 }

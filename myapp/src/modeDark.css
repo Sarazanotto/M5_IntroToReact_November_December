@@ -19,13 +19,15 @@ body.dark {
   .burger-btn:hover {
     background-color: rgb(24, 24, 24);
   }
-  .btnSearch,.btn-form {
+  .btnSearch,
+  .btn-form {
     background-color: rgb(19, 19, 19) !important;
     box-shadow: inset 2px 2px 2px #1a1a1a, inset 4px 4px 5px rgb(54, 54, 54),
       3px 3px 4px rgb(0, 0, 0);
     color: #fff;
   }
-  .btnSearch:hover,.btn-form:hover{
+  .btnSearch:hover,
+  .btn-form:hover {
     box-shadow: inset -2px -2px 2px #1a1a1a, inset -4px -4px 5px rgb(54, 54, 54),
       -3px -3px 4px rgb(0, 0, 0);
   }
@@ -57,9 +59,14 @@ body.dark {
       rgb(24, 24, 24)
     );
   }
-  .cardBook .btn-reviews, .cardBook .btn-detail {
+  .cardBook .btn-reviews,
+  .cardBook .btn-detail,
+  .cardBook .container-detail {
     background-color: rgb(24, 24, 24);
     color: #fff;
+  }
+  .cardBook .btn-icon {
+    stroke: #fff;
   }
   .form-mode.form-control,
   .formControl.form-control {
@@ -80,5 +87,12 @@ body.dark {
   .modal-content {
     background-color: rgb(46, 46, 46);
     color: #fff;
+  }
+  .btn-icon-detail {
+    stroke: white;
+  }
+  .img-book-detail {
+    box-shadow: 0 40px 20px -20px rgb(100, 100, 100, 0.8),
+      2px 2px 10px rgb(100, 100, 100, 0.8);
   }
 }

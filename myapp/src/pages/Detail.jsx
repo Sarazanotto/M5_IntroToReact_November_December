@@ -7,7 +7,7 @@ import { BookOpenCheck, Heart, ShoppingBasket } from "lucide-react";
 import { LikedContext } from "../context/LikedContext";
 import CostumLoading from "../components/costums/costumLoading/CostumLoading";
 import { CartContext } from "../context/cartContext";
-
+import '../modeDark.css'
 const Detail = () => {
   const { toggleLike, like } = useContext(LikedContext);
   const { toggleInCart } = useContext(CartContext);
@@ -43,15 +43,15 @@ const Detail = () => {
     <MainLayout>
       {isLoading && <CostumLoading />}
       {!isLoading && (
-        <Container className="py-5">
+        <Container className="py-5 ">
           <Row className="d-flex justify-content-center justify-content-md-between g-5">
-            <Col sm={12} md={5} className="">
+            <Col sm={12} md={6} className="d-flex justify-content-center">
               {book && (
-                <img src={book.img} alt={book.title} className="img-fluid p-1 img-book-detail" />
+                <img src={book.img} alt={book.title} className="img-fluid p-1 img-book-detail w-75" />
               )}
             </Col>
 
-            <Col sm={12} md={7} className="d-flex justify-content-center flex-column">
+            <Col sm={12} md={6} className="d-flex justify-content-center flex-column px-5">
               {book && (
                 <>
                   <h3>{book.title}</h3>
@@ -63,17 +63,17 @@ const Detail = () => {
                   <Row className="mt-4">
                     <Col className="d-flex gap-5">
                       <button
-                        className="btn p-0"
+                        className="btn btn-icon-detail"
                         onClick={toggleCart}
                       >
-                        <ShoppingBasket color={isCart ? "red" : "black"} />
+                        <ShoppingBasket color={isCart ? "red" : ""} />
                       </button>
                       <button
-                        className="btn"
+                        className="btn btn-icon-detail"
                         onClick={() => toggleLike(book.asin)}
                       >
                         <BookOpenCheck
-                          color={like[book.asin] ? "red" : "black"}
+                          color={like[book.asin] ? "green" : ""}
                         />
                       </button>
                     </Col>
