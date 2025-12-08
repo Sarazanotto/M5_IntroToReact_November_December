@@ -14,12 +14,12 @@ const BookSection = () => {
   const { books } = useContext(InputSearchContext);
   const [visibleBook, setVisibleBook] = useState(20);
 
-  const loadBook = () => {
-    setVisibleBook((book) => Math.min(book + 20, books.length));
-  };
-
   const loadLessBook = () => {
     setVisibleBook((book) => Math.max(book - 20, 20));
+  };
+
+  const loadBook = () => {
+    setVisibleBook((book) => Math.min(book + 20, books.length));
   };
 
   return (
@@ -42,13 +42,12 @@ const BookSection = () => {
             </div>
           </Col>
           <Col sm={12} md={4} className="sectionComment">
-          
             <CommentArea asin={isSelected} />
             <AddComment asin={isSelected} />
           </Col>
         </Row>
       </Container>
-      <CommentAreaMobile/>
+      <CommentAreaMobile />
     </main>
   );
 };
