@@ -33,12 +33,14 @@ const {books,setBooks}=useContext(InputSearchContext)
 
   return (
     <>
-      <div className="containerMain w-100 d-flex flex-column flex-md-roaw gap-2">
+      <div className="containerMain d-flex flex-column flex-md-row gap-2">
         <Container className="py-3">
           <Row className="justify-content-center ">
-       
+          <div className="containerForm w-100"></div>
             <Col sm={12} md={8}>
-              <Form className="d-flex gap-3 inputForm">
+            
+               <Form className="d-flex gap-3 inputForm">
+             
                 <Form.Control
                   className="formControl"
                   onChange={onChange}
@@ -49,6 +51,8 @@ const {books,setBooks}=useContext(InputSearchContext)
                   Cerca
                 </Button>
               </Form>
+           
+             
             </Col>
                  <Col sm={12} md={4}></Col>
           </Row>

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <MainLayout>
       <Container>
-        <Row className="flex-column p-4 my-4 gap-5">
+        <Row className="flex-column p-4 my-4 gap-5 containerAbout">
           <Col>
             <h4>Editori dal 1990</h4>
             <p>

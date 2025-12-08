@@ -1,9 +1,6 @@
 import { useContext, useState } from "react";
 import "./style.css";
 import { Col, Card } from "react-bootstrap";
-import CommentArea from "../../commentArea/CommentArea";
-import ModalComment from "../modalComment/ModalComment";
-import AddComment from "../../commentArea/addComment/AddComment";
 import { SelectedBookContext } from "../../../context/SelectedBookContext";
 import { ModalContext } from "../../../context/ModalContext";
 import { Link } from "react-router-dom";
